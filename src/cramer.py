@@ -19,11 +19,11 @@ def solve_linear_equations(coefficients, constants):
 
     return solution
 
-coefficients = [[2, 1, -1], [3, 2, 1], [2, -1, 2]]
-constants = [1, 10, 6]
+coefficients = [[3, 2, 1], [2, 1, -1], [2, -1, 2]]
+constants = [10, 1, 6]
 
 solution = solve_linear_equations(coefficients, constants)
 print("Solution:")
-print("x =", solution[0])
-print("y =", solution[1])
-print("z =", solution[2])
+print("x =", round(solution[0]))
+print("y =", round(solution[1]))
+print("z =", round(solution[2]))

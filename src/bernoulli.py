@@ -15,10 +15,10 @@ def derangements(n):
 
 def permutations(n,k):
     return (factorial(n))/(factorial(n-k))
-    
+
 def combinations(n,k):
     return (factorial(n))/(factorial(k) * factorial(n-k))
-    
+
 print(factorial(5))
 print(derangements(5))
 print(permutations(9,3))

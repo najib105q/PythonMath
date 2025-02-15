@@ -9,5 +9,6 @@ def roots(a, b, c):
         return root
     else:
         return None
-    
+
 print(roots(1,-5,6))
+print(roots(1,1,1))

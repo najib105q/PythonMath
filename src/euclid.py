@@ -1,6 +1,8 @@
 def gcd(a, b):
     while b != 0:
-        a, b = b, a % b
+        tmp = b
+        b = a % b
+        a = tmp
     return a
 
 print(gcd(360,496))

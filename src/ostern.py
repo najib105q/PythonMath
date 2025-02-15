@@ -7,8 +7,8 @@ def easter_date(year):
     day = 22 + d + e
 
     if day > 31:
-        return day - 31, 4  
+        return day - 31, 4 
     else:
-        return day, 3  
+        return day, 3
 
 print(easter_date(2025))  
