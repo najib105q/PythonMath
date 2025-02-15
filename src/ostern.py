@@ -1,4 +1,4 @@
-def calculate_easter(year):
+def easter_date(year):
     a = year % 19
     b = year % 4
     c = year % 7
@@ -11,4 +11,4 @@ def calculate_easter(year):
     else:
         return day, 3  
 
-print(calculate_easter(2025))  
+print(easter_date(2025))  
