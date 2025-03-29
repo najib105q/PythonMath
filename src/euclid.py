@@ -5,4 +5,8 @@ def gcd(a, b):
         a = tmp
     return a
 
-print(gcd(360,496))
+def lcm(a,b):
+    return (a * b)/(gcd(a,b))
+
+print(gcd(15,20))
+print(lcm(15,20))

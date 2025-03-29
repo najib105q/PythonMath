@@ -21,8 +21,8 @@ def solve_linear_equations(coefficients, constants):
 
 coefficients = [[3, 2, 1], [2, 1, -1], [2, -1, 2]]
 constants = [10, 1, 6]
-
 solution = solve_linear_equations(coefficients, constants)
+
 print("Solution:")
 print("x =", round(solution[0]))
 print("y =", round(solution[1]))

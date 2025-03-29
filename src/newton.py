@@ -5,8 +5,11 @@ def root_approx(n, epsilon=1e-6):
     x = n / 2
     
     while abs(x * x - n) > epsilon:
-        x = (x + n / x) / 2
+        x = (x + (n / x)) / 2
 
     return x
 
+print(root_approx(2))
+print(root_approx(15))
+print(root_approx(50))
 print(root_approx(99))
