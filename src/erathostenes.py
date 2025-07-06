@@ -12,4 +12,6 @@ def filter_primes(n):
     primes = [i for i in range(2, n + 1) if prime[i]]
     return primes
 
+print(filter_primes(50))
 print(filter_primes(100))
+print(filter_primes(200))

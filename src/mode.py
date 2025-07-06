@@ -49,6 +49,5 @@ def find_mode(arr):
     
     return mode
 
-# Beispielverwendung
 array = [1, 3, 2, 2, 1, 4, 4, 3, 5, 2, 5]
-print(find_mode(array))  # Ausgabe: 2
+print(find_mode(array))
