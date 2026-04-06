@@ -1,14 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def f(x):
-    """
-    Input:
-        x: numpy array of points
-    Output:
-        numpy array representing any user-defined function evaluated at x
-    """
-    return np.where(x >= 0, x**2, -x)  # change this to any function you want
+def f(x, mode="piecewise"):
+    if mode == "square":
+        return np.sign(x)
+    elif mode == "sawtooth":
+        return x
+    elif mode == "piecewise":
+        return np.where(x >= 0, x**2, -x)  # change this to any function you want
 
 def fourier_series_coeffs(f, L, N, num_points=2000):
     """
@@ -31,9 +30,13 @@ def fourier_series_coeffs(f, L, N, num_points=2000):
     a = np.zeros(N+1)
     b = np.zeros(N+1)
 
-    for n in range(1, N+1):
-        a[n] = (1/L) * np.trapezoid(y * np.cos(n*np.pi*x/L), x)
-        b[n] = (1/L) * np.trapezoid(y * np.sin(n*np.pi*x/L), x)
+    n = np.arange(1, N+1)
+    
+    cos_terms = np.cos(np.outer(n, np.pi*x/L))
+    sin_terms = np.sin(np.outer(n, np.pi*x/L))
+    
+    a[1:] = (1/L) * np.trapezoid(y * cos_terms, x, axis=1)
+    b[1:] = (1/L) * np.trapezoid(y * sin_terms, x, axis=1)
 
     return a0, a, b
 
@@ -48,10 +51,13 @@ def fourier_approx(x, L, a0, a, b):
     Output:
         numpy array of Fourier series values at x
     """
-    N = len(a) - 1
-    s = a0 / 2
-    for n in range(1, N+1):
-        s += a[n] * np.cos(n*np.pi*x/L) + b[n] * np.sin(n*np.pi*x/L)
+    n = np.arange(1, len(a))
+    
+    cos_terms = np.cos(np.outer(n, np.pi*x/L))
+    sin_terms = np.sin(np.outer(n, np.pi*x/L))
+    
+    s = a0/2 + np.sum(a[1:, None]*cos_terms + b[1:, None]*sin_terms, axis=0)
+    
     return s
 
 if __name__ == "__main__":
