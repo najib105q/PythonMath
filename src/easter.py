@@ -11,6 +11,6 @@ def easter_date(year):
     else:
         return day, 3
 
-print(easter_date(2024))
 print(easter_date(2025))
 print(easter_date(2026))
+print(easter_date(2027))
