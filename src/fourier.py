@@ -7,7 +7,7 @@ def f(x, mode="piecewise"):
     elif mode == "sawtooth":
         return x
     elif mode == "piecewise":
-        return np.where(x >= 0, x**2, -x)  # change this to any function you want
+        return np.where(x >= 0, x**2, -x)
 
 def fourier_series_coeffs(f, L, N, num_points=2000):
     """
@@ -26,7 +26,6 @@ def fourier_series_coeffs(f, L, N, num_points=2000):
 
     a0 = (1/L) * np.trapezoid(y, x)
 
-    # Padding arrays to make indexing easier
     a = np.zeros(N+1)
     b = np.zeros(N+1)
 
