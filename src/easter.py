@@ -11,6 +11,17 @@ def easter_date(year):
     else:
         return day, 3
 
-print(easter_date(2025))
-print(easter_date(2026))
-print(easter_date(2027))
+while True:
+    user_input = input("Enter a year to find the date of Easter (or type 'exit' to quit): ")
+    
+    if user_input.lower() == 'exit':
+        print("\nGoodbye!\n")
+        break
+    
+    try:
+        year = int(user_input)
+        month, day = easter_date(year)
+        print(f"\nEaster in {year} falls on: {month}/{day}\n")
+    except ValueError:
+        print("\nInvalid input. Please enter a valid year or type 'exit' to quit.\n")
+        break
