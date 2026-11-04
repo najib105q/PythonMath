@@ -14,25 +14,51 @@ def prime_factorization(n):
     return factors
 
 
+def totient(n):
+    if n == 1:
+        return 1
+
+    result = n
+
+    for prime in prime_factorization(n):
+        result = result * (prime - 1) // prime
+
+    return result
+
+
+def get_positive_integer():
+    while True:
+        user_input = input("Enter a positive integer: ")
+
+        try:
+            num = float(user_input)
+
+            if not num.is_integer():
+                print("Error: Please enter a whole number.")
+                continue
+
+            num = int(num)
+
+            if num <= 0:
+                print("Error: Please enter a positive integer.")
+                continue
+
+            return num
+
+        except ValueError:
+            print("Error: Invalid input.")
+
+
 while True:
-    user_input = input("Enter a positive integer (or 'q' to quit): ")
+    print("\nNumber Theory Toolkit")
+    print("1. Prime Factorization")
+    print("2. Euler Totient Function")
+    print("3. Quit")
 
-    if user_input.lower() in ("q", "quit", "exit"):
-        print("Goodbye!")
-        break
+    choice = input("Choose an option: ")
 
-    try:
-        num = float(user_input)
-
-        if not num.is_integer():
-            print("Error: Please enter a whole number.")
-            continue
-
-        num = int(num)
-
-        if num <= 0:
-            print("Error: Please enter a positive integer.")
-            continue
+    if choice == "1":
+        num = get_positive_integer()
 
         if num == 1:
             print("1 = 1")
@@ -49,5 +75,13 @@ while True:
 
         print(f"{num} = {' × '.join(parts)}")
 
-    except ValueError:
-        print("Error: Invalid input.")
+    elif choice == "2":
+        num = get_positive_integer()
+        print(f"φ({num}) = {totient(num)}")
+
+    elif choice == "3":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Error: Invalid choice.")
