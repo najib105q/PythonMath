@@ -1,7 +1,7 @@
 while True:
-    user_input = input("Enter the number of rows (or 'exit' to quit): ")
+    user_input = input("Enter the number of rows (or 'q' to quit): ")
 
-    if user_input.lower() == "exit":
+    if user_input.lower() == "q":
         print("\nGoodbye!\n")
         break
 
@@ -23,4 +23,4 @@ while True:
         print()
 
     except ValueError:
-        print("Invalid input. Please enter a valid integer or 'exit'.\n")
+        print("Invalid input! Please enter a valid integer or 'exit'.\n")

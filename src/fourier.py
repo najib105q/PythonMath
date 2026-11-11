@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Function Types
 def f(x, mode="piecewise"):
     if mode == "square":
         return np.sign(x)

@@ -12,9 +12,9 @@ def easter_date(year):
         return day, 3
 
 while True:
-    user_input = input("Enter a year to find the date of Easter (or type 'exit' to quit): ")
+    user_input = input("Enter a year to find the date of Easter (or type 'q' to quit): ")
     
-    if user_input.lower() == 'exit':
+    if user_input.lower() == 'q':
         print("\nGoodbye!\n")
         break
     
@@ -23,5 +23,5 @@ while True:
         month, day = easter_date(year)
         print(f"\nEaster in {year} falls on: {month}/{day}\n")
     except ValueError:
-        print("\nInvalid input. Please enter a valid year or type 'exit' to quit.\n")
+        print("\nInvalid input! Please enter a valid year or type 'q' to quit.\n")
         break

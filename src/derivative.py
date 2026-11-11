@@ -1,5 +1,3 @@
-import math
-
 def f(x):
     return x**3 - 5*x**2 + 7*x - 10
 

@@ -11,7 +11,31 @@ def collatz(n):
 
     return sequence
 
-print(*collatz(1), sep=" -> ")
-print(*collatz(3), sep=" -> ")
-print(*collatz(16), sep=" -> ")
-print(*collatz(27), sep=" -> ")
+while True:
+    print("\nCollatz Conjecture")
+    print("------------------")
+    print("1. Generate Sequence")
+    print("2. Quit\n")
+
+    choice = input("Choice: ")
+    print()
+
+    try:
+        if choice == "1":
+            n = int(input("n: "))
+
+            if n < 1:
+                print("\nn must be positive!")
+            else:
+                print()
+                print(*collatz(n), sep=" -> ")
+
+        elif choice == "2":
+            print("Goodbye!\n")
+            break
+
+        else:
+            print("Invalid choice!")
+
+    except ValueError:
+        print("Invalid number!")
